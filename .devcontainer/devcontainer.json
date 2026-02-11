@@ -1,0 +1,37 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+	"name": "Node.js",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+
+	// Features to add to the dev container.
+  "hostRequirements": {
+    "cpus": 4
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/git-lfs": {}
+  },
+
+  "forwardPorts": [5173, 5000],
+
+  "postCreateCommand": "echo 'Container ready. You can now create frontend and backend using npm init.'",
+
+  "customizations": {
+    "codespaces": {
+      "openFiles": []
+    }
+  },
+
+  "portsAttributes": {
+    "5173": {
+      "label": "Frontend",
+      "onAutoForward": "openPreview"
+    },
+    "5000": {
+      "label": "Backend",
+      "onAutoForward": "silent"
+    }
+  }
+}
