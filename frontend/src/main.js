@@ -1,24 +1,22 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import './style.css';
+import NavigateTo from './functions/NavigateTo.js';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// 1. Initial render - Let the function handle the first load!
+// This ensures the URL and the content match from the start.
+NavigateTo('dashboard');
 
-setupCounter(document.querySelector('#counter'))
+// 2. Event Delegation
+// We listen for clicks on the entire #app container.
+document.querySelector('#app').addEventListener('click', (event) => {
+  // Check if the clicked element (or its parent) has the ID we want
+  if (event.target.id === 'toSettings') {
+    // Prevent default if it's an <a> tag
+    event.preventDefault(); 
+    NavigateTo('settings');
+  }
+  
+  if (event.target.id === 'toDashboard') {
+    event.preventDefault();
+    NavigateTo('dashboard');
+  }
+});
