@@ -2,7 +2,9 @@ export default async function Dashboard() {
   try {
     // Make sure this matches the port and path exactly!
     //const response = await fetch('http://localhost:3000/api/user'); 
-    const response = await fetch('https://silver-succotash-ggrrvwr7wrw2vvpx-3000.app.github.dev/api/user'); 
+    const response = await fetch(
+    'https://silver-succotash-ggrrvwr7wrw2vvpx-3000.app.github.dev/api/user'
+    );
     if (!response.ok) {
        throw new Error('Network response was not ok');
     }
@@ -14,7 +16,10 @@ export default async function Dashboard() {
         <h1>Dashboard</h1>
         <p>User: <strong>${data.name}</strong></p>
         <p>Role: ${data.role}</p>
+        
         <button id="toSettings">Settings</button>
+        <button id="toCredit">Credit</button>
+        <button id="toDebit">Debit</button>
       </div>
     `;
   } catch (error) {

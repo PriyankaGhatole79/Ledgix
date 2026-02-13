@@ -6,7 +6,7 @@ const PORT = 3000;
 
 // Middleware
 app.use(cors({
-  origin: 'https://silver-succotash-ggrrvwr7wrw2vvpx-5173.app.github.dev', // Your Frontend URL
+  origin: 'https://silver-succotash-ggrrvwr7wrw2vvpx-5173.app.github.dev',
   methods: ['GET', 'POST'],
   credentials: true
 }));

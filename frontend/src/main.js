@@ -19,4 +19,14 @@ document.querySelector('#app').addEventListener('click', (event) => {
     event.preventDefault();
     NavigateTo('dashboard');
   }
+
+  if (event.target.id === 'toCredit') {
+    event.preventDefault();
+    NavigateTo('credit');
+  }
+
+  if (event.target.id === 'toDebit') {
+    event.preventDefault();
+    NavigateTo('debit');
+  }
 });
